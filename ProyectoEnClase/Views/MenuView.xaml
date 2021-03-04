@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoEnClase.Views.MenuView">
+    <ContentPage.Content>
+
+        <!--Imagen-->
+        <StackLayout>
+            <StackLayout Padding="50">
+                <Image
+                    HeightRequest="180"
+                    WidthRequest="180"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Source="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"/>
+            </StackLayout>
+
+            <!--Lista Menu-->
+            <StackLayout>
+                <ListView ItemsSource="{Binding lstMenu}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ImageCell TextColor="#9b9b9b"
+                                       Text="{Binding Name}"
+                                       ImageSource="{Binding Icon}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
