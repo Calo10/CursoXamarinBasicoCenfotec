@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoEnClase.Views.RegisterUserView">
+    <StackLayout VerticalOptions="Center">
+        <ScrollView>
+            <StackLayout>
+                <Image Source="Logo" HeightRequest="250"  HorizontalOptions="Center"/>
+
+                <StackLayout Padding="40" Spacing="20">
+
+                    <Entry Text="{Binding User.FirstName}"
+                           Placeholder="First Name"
+                           HeightRequest="40"/>
+
+                    <Entry Text="{Binding User.LastName}"
+                           Placeholder="Last Name"
+                           HeightRequest="40"/>
+
+                    <Entry Text="{Binding User.Email}"
+                           Placeholder="Email address"
+                           HeightRequest="40"/>
+
+                    <Entry Text="{Binding User.Password}"
+                           IsPassword="True"
+                           Placeholder="Password"
+                           HeightRequest="40"  />
+
+                    <Button Text="Create New Account"
+                            HeightRequest="50"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            CornerRadius="5"
+                            HorizontalOptions="Center"
+                            WidthRequest="320"
+                            Command="{Binding CreateAccountCommand}"/>
+
+                </StackLayout>
+            </StackLayout>
+
+        </ScrollView>
+
+
+    </StackLayout>
+</ContentPage>

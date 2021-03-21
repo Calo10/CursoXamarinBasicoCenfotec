@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using ProyectoEnClase.ViewModels;
 using Xamarin.Forms;
 
 namespace ProyectoEnClase.Views
@@ -10,6 +10,8 @@ namespace ProyectoEnClase.Views
         public LoginView()
         {
             InitializeComponent();
+
+            BindingContext = LoginViewModel.GetInstance();
         }
     }
 }

@@ -112,8 +112,12 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\LoginImage.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\LoginImage.imageset\LoginImage.png" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\Logo.jpg" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\Logo-1.jpg" />
+    <ImageAsset Include="Assets.xcassets\HomeViewHeader.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\HomeViewHeader.imageset\HomeViewHeader.jpg" />
+    <ImageAsset Include="Assets.xcassets\HomeViewHeader.imageset\HomeViewHeader-1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -126,6 +130,9 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Realm">
+      <Version>5.1.2</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -135,6 +142,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets.xcassets\LoginImage.imageset\" />
+    <Folder Include="Assets.xcassets\Logo.imageset\" />
+    <Folder Include="Assets.xcassets\HomeViewHeader.imageset\" />
   </ItemGroup>
 </Project>

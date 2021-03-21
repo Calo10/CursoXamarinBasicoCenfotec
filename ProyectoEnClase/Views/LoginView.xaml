@@ -2,45 +2,66 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoEnClase.Views.LoginView">
-    <StackLayout BackgroundColor="#00cdd9">
+    <StackLayout VerticalOptions="Center">
         <ScrollView>
             <StackLayout>
+                <Image Source="Logo" HeightRequest="250"  HorizontalOptions="Center"/>
 
-                <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+                <StackLayout Padding="40" Spacing="20">
+                    <Entry Text="{Binding User.Email}"
+                           Placeholder="Email address"
+                           HeightRequest="40"/>
 
-                    <Image Source="LoginImage" WidthRequest="350" Margin="30" VerticalOptions="Center" />
-                    <BoxView BackgroundColor="#00cdd9"  CornerRadius="30,30,0,0"/>
-                </StackLayout>
-
-                <StackLayout Padding="40" Spacing="20" VerticalOptions="End">
-                    <Entry Placeholder="Phone number or email address" HeightRequest="50"   />
-                    <Entry Placeholder="Password" IsPassword="True" HeightRequest="50"  />
+                    <Entry Text="{Binding User.Password}"
+                           IsPassword="True"
+                           Placeholder="Password"
+                           HeightRequest="40"  />
 
                     <Button Text="Log in"
-                            HeightRequest="50"
-                            BackgroundColor="White"
-                            TextColor="#00cdd9"
+                            HeightRequest="40"
+                            BackgroundColor="#006eff"
+                            TextColor="White"
+                            FontSize="Medium"
                             CornerRadius="5"
-                            FontSize="Medium"/>
-                    <Label Text="Forgotten password?" TextColor="#f2f5f5" HorizontalOptions="Center" FontSize="Medium" />
+                            Command="{Binding LoginCommand}"/>
+
+                    <Label Text="Forgotten password?"
+                           TextColor="#006eff"
+                           HorizontalOptions="Center"
+                           FontSize="Medium" />
+
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <BoxView BackgroundColor="#555" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" />
-                        <Label Text="OR" TextColor="#555" HorizontalOptions="Center"  VerticalOptions="Center" FontSize="Medium" />
+
+                        <BoxView BackgroundColor="#555"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="Center"
+                                 HeightRequest="1" />
+
+                        <Label Text="OR"
+                               TextColor="#555"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontSize="Medium" />
+
                         <BoxView BackgroundColor="#555" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1"  />
 
                     </StackLayout>
-                    <Button Text="Create New Facebook Account"
+
+                    <Button Text="Create New Account"
                             HeightRequest="50"
-                            BackgroundColor="#f2f5f5"
-                            TextColor="#00cdd9"
+                            BackgroundColor="Green"
+                            TextColor="White"
                             CornerRadius="5"
                             HorizontalOptions="Center"
                             WidthRequest="320"
-                            FontSize="Medium"/>
+                            Command="{Binding EnterCreateAccountCommand}"/>
 
                 </StackLayout>
             </StackLayout>
 
         </ScrollView>
+
+
     </StackLayout>
+
 </ContentPage>

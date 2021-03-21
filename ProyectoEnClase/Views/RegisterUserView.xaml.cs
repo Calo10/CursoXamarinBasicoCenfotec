@@ -5,13 +5,13 @@ using Xamarin.Forms;
 
 namespace ProyectoEnClase.Views
 {
-    public partial class DoctorDetailView : ContentPage
+    public partial class RegisterUserView : ContentPage
     {
-        public DoctorDetailView()
+        public RegisterUserView()
         {
             InitializeComponent();
 
-            BindingContext = HomeViewModel.GetInstance();
+            BindingContext = LoginViewModel.GetInstance();
         }
     }
 }

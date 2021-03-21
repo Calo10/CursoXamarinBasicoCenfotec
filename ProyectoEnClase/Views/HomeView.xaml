@@ -1,24 +1,70 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProyectoEnClase.Views.HomeView">
-    <ContentPage.Content>
+             x:Class="ProyectoEnClase.Views.HomeView"
+             x:Name="HomeViewPage">
 
-        <!--Lista de Doctores-->
+    <StackLayout BackgroundColor="White">
+
         <StackLayout>
+            <Image Source="HomeViewHeader"
+                   HeightRequest="350"/>
 
-            <ListView ItemsSource="{Binding lstDoctors}">
+        </StackLayout>
+        <BoxView HeightRequest="20"
+                 CornerRadius="50,50,0,0"
+                 Color="#c9fcf8"
+                 Margin="-6"
+                 />
+
+        <StackLayout BackgroundColor="#c9fcf8"
+                     Padding="20">
+
+            <ListView ItemsSource="{Binding lstDoctors}"
+                      BackgroundColor="Transparent"
+                      SeparatorVisibility="None"
+                      HasUnevenRows="true">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ImageCell TextColor="#9b9b9b"
+                        <!--<ImageCell TextColor="#9b9b9b"
                                    Text="{Binding FirstName}"
                                    Detail="{Binding Email}"
-                                   ImageSource="{Binding Picture}"/>
+                                   ImageSource="{Binding Picture}"
+                                   Command="{Binding Path=BindingContext.EnterDoctorDetailCommand, Source={x:Reference HomeViewPage}}"
+                                   CommandParameter="{Binding Id}"/>-->
+                        <ViewCell>
+                            <StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.EnterDoctorDetailCommand, Source={x:Reference HomeViewPage}}"
+                                                          CommandParameter="{Binding Id}"/>
+                                </StackLayout.GestureRecognizers>
+                                <Frame BackgroundColor="White"
+                                           CornerRadius="15"
+                                           Margin="10" 
+                                           >
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Column="0">
+                                            <Image Source="{Binding Picture}"/>
+                                        </StackLayout>
+                                        <StackLayout Grid.Column="1">
+                                            <Label Text="{Binding FirstName}"
+                                                       FontSize="Medium"/>
+                                            <Label Text="{Binding Email}"
+                                                       FontSize="Small"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
         </StackLayout>
-
-    </ContentPage.Content>
+    </StackLayout>
 </ContentPage>

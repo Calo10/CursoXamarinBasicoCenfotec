@@ -5,13 +5,13 @@ using Xamarin.Forms;
 
 namespace ProyectoEnClase.Views
 {
-    public partial class DoctorDetailView : ContentPage
+    public partial class PostView : ContentPage
     {
-        public DoctorDetailView()
+        public PostView()
         {
             InitializeComponent();
 
-            BindingContext = HomeViewModel.GetInstance();
+            BindingContext = PostViewModel.GetInstance();
         }
     }
 }

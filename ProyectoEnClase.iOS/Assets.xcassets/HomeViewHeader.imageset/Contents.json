@@ -8,7 +8,7 @@
       "idiom": "universal"
     },
     {
-      "filename": "LoginImage.png",
+      "filename": "HomeViewHeader.jpg",
       "scale": "2x",
       "idiom": "universal"
     },
@@ -24,6 +24,7 @@
       "idiom": "iphone"
     },
     {
+      "filename": "HomeViewHeader-1.jpg",
       "scale": "2x",
       "idiom": "iphone"
     },

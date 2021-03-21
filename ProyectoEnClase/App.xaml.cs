@@ -11,6 +11,7 @@ namespace ProyectoEnClase
         {
             InitializeComponent();
 
+            //MainPage = new HomeView();    
             MainPage = new LoginView();
         }
 
