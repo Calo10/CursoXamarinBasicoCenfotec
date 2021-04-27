@@ -19,6 +19,7 @@ namespace ProyectoEnClase.Models
         public DateTime DateOfBirth { get; set; }
         public DateTime RegisterDate { get; set; }
         public string Phone { get; set; }
+        public LocationModel Location { get; set; }
 
 
         public DoctorModel()
@@ -30,7 +31,7 @@ namespace ProyectoEnClase.Models
             using (HttpClient client = new HttpClient())
             {
 
-                var uri = new Uri("https://dummyapi.io/data/api/user?limit=10");
+                var uri = new Uri("https://dummyapi.io/data/api/user");
 
                 client.DefaultRequestHeaders.Add("app-id", "5fad867bca750f4fc7508473");
 
@@ -41,6 +42,25 @@ namespace ProyectoEnClase.Models
                 ResponseDoctorModel responseObject = JsonConvert.DeserializeObject<ResponseDoctorModel>(ans);
 
                 return responseObject.data;
+            }
+        }
+
+        public async static Task<DoctorModel> GetDoctorDetail(string doctorId)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+
+                var uri = new Uri("https://dummyapi.io/data/api/user/" + doctorId);
+
+                client.DefaultRequestHeaders.Add("app-id", "5fad867bca750f4fc7508473");
+
+                HttpResponseMessage response = await client.GetAsync(uri).ConfigureAwait(false);
+
+                string ans = await response.Content.ReadAsStringAsync();
+
+                DoctorModel responseObject = JsonConvert.DeserializeObject<DoctorModel>(ans);
+
+                return responseObject;
             }
         }
 

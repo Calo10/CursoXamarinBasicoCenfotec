@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Input;
 using ProyectoEnClase.Models;
 using ProyectoEnClase.Views;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace ProyectoEnClase.ViewModels
@@ -44,7 +45,10 @@ namespace ProyectoEnClase.ViewModels
 
         #region Commands
 
+        public ICommand NavigateToMapCommand { get; set; }
+
         public ICommand EnterDoctorDetailCommand { get; set; }
+        public ICommand EnterLocationViewCommand { get; set; }
 
         #endregion
 
@@ -87,17 +91,47 @@ namespace ProyectoEnClase.ViewModels
 
         private void InitCommands()
         {
+            NavigateToMapCommand = new Command(NavigateToMap);
+
             EnterDoctorDetailCommand = new Command<string>(EnterDoctorDetail);
+            EnterLocationViewCommand = new Command(EnterLocationView);
         }
 
         public async void EnterDoctorDetail(string Id)
         {
 
-            CurrentDoctor = lstDoctors.Where(x => x.Id == Id).FirstOrDefault();
+            //DET DETAIL
+            //CurrentDoctor = lstDoctors.Where(x => x.Id == Id).FirstOrDefault();
+            CurrentDoctor = await DoctorModel.GetDoctorDetail(Id);
+
 
             await ((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new DoctorDetailView());
-
         }
+
+        public async void EnterLocationView()
+        {
+            await ((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new LocationView());
+        }
+
+        public async void NavigateToMap()
+        {
+
+            try
+            {
+                var address = CurrentDoctor.Location.street + "%20" + CurrentDoctor.Location.city + "%20" + CurrentDoctor.Location.state + "%20" + CurrentDoctor.Location.country;
+
+                var latLog = await GeocodeModel.GetGeoCode(address);
+
+                var location = new Xamarin.Essentials.Location(latLog.data.results[0].geometry.location.lat, latLog.data.results[0].geometry.location.lng);
+
+                await Map.OpenAsync(location);
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("ERROR", "Error display Map" + ex.Message, "OK");
+            }
+        }
+
 
         #region INotifyPropertyChanged Implentation
         public event PropertyChangedEventHandler PropertyChanged;

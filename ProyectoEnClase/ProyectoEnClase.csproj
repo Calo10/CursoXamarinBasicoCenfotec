@@ -12,14 +12,22 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Realm" Version="5.1.2" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="4.3.0.908675" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="Models\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Views\Behavior\" />
+    <Folder Include="Views\Cells\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Views\Partials\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\Specialties.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\LoginView.xaml.cs">

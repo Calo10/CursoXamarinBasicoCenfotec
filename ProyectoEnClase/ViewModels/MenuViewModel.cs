@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows.Input;
 using ProyectoEnClase.Models;
+using ProyectoEnClase.Views;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace ProyectoEnClase.ViewModels
 {
@@ -22,6 +26,24 @@ namespace ProyectoEnClase.ViewModels
                 OnPropertyChanged("lstMenu");
             }
         }
+
+        private string _batteryLevel = "";
+
+        public string batteryLevel
+        {
+            get
+            {
+                return _batteryLevel;
+            }
+            set
+            {
+                _batteryLevel = value;
+                OnPropertyChanged("batteryLevel");
+            }
+        }
+
+        public ICommand EnterMenuOptionCommand { get; set; }
+
         #endregion
 
 
@@ -31,7 +53,7 @@ namespace ProyectoEnClase.ViewModels
 
         private MenuViewModel()
         {
-            //InitCommands();
+            InitCommands();
             InitClass();
         }
 
@@ -52,8 +74,46 @@ namespace ProyectoEnClase.ViewModels
 
         public void InitClass()
         {
-            lstMenu.Add(new MenuModel { Id = 1, Name = "Especialidades", Icon = "" });
-            lstMenu.Add(new MenuModel { Id = 1, Name = "Contacto", Icon = "" });
+            lstMenu.Add(new MenuModel { Id = 1, Name = "Specialties", Icon = "" });
+            lstMenu.Add(new MenuModel { Id = 2, Name = "Contact", Icon = "" });
+            lstMenu.Add(new MenuModel { Id = 3, Name = "Information", Icon = "" });
+            lstMenu.Add(new MenuModel { Id = 4, Name = "Map", Icon = "" });
+            lstMenu.Add(new MenuModel { Id = 5, Name = "Chat", Icon = "" });
+
+            //batteryLevel = Battery.ChargeLevel.ToString();
+        }
+
+        public void InitCommands()
+        {
+            EnterMenuOptionCommand = new Command<int>(EnterMenuOption);
+        }
+
+        public async void EnterMenuOption(int opc)
+        {
+            switch (opc)
+            {
+                case 1:
+                    await ((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new SpecialtiesView());
+                    break;
+                case 2:
+                    await ((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new ContactView());
+                    break;
+
+                case 3:
+                    await ((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new InfoView());
+                    break;
+
+                case 4:
+                    await ((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new MapView());
+                    break;
+
+                case 5:
+                    await ((MasterDetailPage)App.Current.MainPage).Detail.Navigation.PushAsync(new ChatView());
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         #region INotifyPropertyChanged Implentation

@@ -52,7 +52,7 @@ namespace ProyectoEnClase.ViewModels
 
         public async void InitClass()
         {
-            lstPosts = await PostModel.GetAllPost();
+
         }
 
         private void InitCommands()

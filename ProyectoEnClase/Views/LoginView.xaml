@@ -5,7 +5,7 @@
     <StackLayout VerticalOptions="Center">
         <ScrollView>
             <StackLayout>
-                <Image Source="Logo" HeightRequest="250"  HorizontalOptions="Center"/>
+                <Image Source="Logo" HeightRequest="150"  HorizontalOptions="Center"/>
 
                 <StackLayout Padding="40" Spacing="20">
                     <Entry Text="{Binding User.Email}"

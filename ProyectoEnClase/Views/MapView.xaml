@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:behaviors="clr-namespace:ProyectoEnClase.Views.Behavior"
+             x:Class="ProyectoEnClase.Views.MapView">
+    <StackLayout>
+        <maps:Map x:Name="MyMap" >
+            <maps:Map.Behaviors>
+                <behaviors:MapBehavior 
+                    ItemsSource="{Binding lstLocations}"/>
+            </maps:Map.Behaviors>
+        </maps:Map>
+    </StackLayout>
+</ContentPage>

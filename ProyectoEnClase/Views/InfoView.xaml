@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoEnClase.Views.InfoView">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <!--Batery Info-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Batery Level"/>
+                <Label Text="{Binding batteryLevel}"/>
+            </StackLayout>
+
+            <!--Batery Info-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Modelo"/>
+                <Label Text="{Binding DeviceInfo.Model}"/>
+            </StackLayout>
+
+            <!--Batery Info-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Manufacturer:"/>
+                <Label Text="{Binding DeviceInfo.Manufacturer}"/>
+            </StackLayout>
+
+            <!--Batery Info-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Platform:"/>
+                <Label Text="{Binding DeviceInfo.Platform}"/>
+            </StackLayout>
+
+            <!--Batery Info-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Idiom:"/>
+                <Label Text="{Binding DeviceInfo.Idiom}"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoEnClase.Views.LocationView">
+    <StackLayout>
+
+        <!--Street-->
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Street:"/>
+            <Label Text="{Binding CurrentDoctor.Location.street}"/>
+        </StackLayout>
+
+        <!--City-->
+        <StackLayout Orientation="Horizontal">
+            <Label Text="City:"/>
+            <Label Text="{Binding CurrentDoctor.Location.city}"/>
+        </StackLayout>
+
+        <!--State-->
+        <StackLayout Orientation="Horizontal">
+            <Label Text="State:"/>
+            <Label Text="{Binding CurrentDoctor.Location.state}"/>
+        </StackLayout>
+
+        <!--Country-->
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Country:"/>
+            <Label Text="{Binding CurrentDoctor.Location.country}"/>
+        </StackLayout>
+
+        <!--Timezone-->
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Timezone:"/>
+            <Label Text="{Binding CurrentDoctor.Location.timezone}"/>
+        </StackLayout>
+
+        <Button Text="Navigate to Map"
+                Command="{Binding NavigateToMapCommand}"/>
+    </StackLayout>
+</ContentPage>
+    

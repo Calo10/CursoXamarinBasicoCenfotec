@@ -4,60 +4,72 @@
              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="ProyectoEnClase.Views.DoctorDetailView">
     <ScrollView>
-        <Grid ColumnSpacing="0" RowSpacing="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="AUTO" />
-                <RowDefinition Height="AUTO" />
-                <RowDefinition Height="AUTO" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="AUTO" />
-            </Grid.RowDefinitions>
+        <StackLayout>
+            <Grid ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="AUTO" />
+                </Grid.RowDefinitions>
 
-            <!--  header background  -->
-            <Image Aspect="AspectFill" Source="HeaderBackground.png" />
-            <Image Aspect="Fill" Margin="0,-1,0,-1" Source="CurvedMask.png" VerticalOptions="End" />
+                <!--  header background  -->
+                <Image Aspect="AspectFill" Source="HeaderBackground.png" />
+                <Image Aspect="Fill" Margin="0,-1,0,-1" Source="CurvedMask.png" VerticalOptions="End" />
 
-            <!--  profile image  -->
-            <Image HeightRequest="100" HorizontalOptions="Center" Source="{Binding CurrentDoctor.Picture}" TranslationY="50" VerticalOptions="End" WidthRequest="100" />
+                <!--  profile image  -->
+                <Image HeightRequest="100" HorizontalOptions="Center" Source="{Binding CurrentDoctor.Picture}" TranslationY="50" VerticalOptions="End" WidthRequest="100" />
 
-            <!--  Profile Name  -->
-            <StackLayout Grid.Row="1" Padding="0,50,0,00" HorizontalOptions="Center">
-                <Label Text="{Binding CurrentDoctor.FirstName}"
-                       HorizontalOptions="Center"/>
+                <!--  Profile Name  -->
+                <StackLayout Grid.Row="1" Padding="0,50,0,00" HorizontalOptions="Center">
+                    <Label Text="{Binding CurrentDoctor.FirstName}"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <!--  Social Stats Section  -->
+                <Grid Grid.Row="2" Margin="0,30" ColumnSpacing="0" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout>
+                        <Label Text="{Binding CurrentDoctor.Gender}"
+                               HorizontalOptions="Center"/>
+                        <Label  Text="Gender"
+                                HorizontalOptions="Center"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Label Text="{Binding CurrentDoctor.Email}"
+                               HorizontalOptions="Center"/>
+                        <Label  Text="Email"
+                                HorizontalOptions="Center"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="2">
+                        <Label Text="{Binding CurrentDoctor.Phone}"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Phone"
+                               HorizontalOptions="Center"/>
+                    </StackLayout>
+                </Grid>
+                <!--  follow button  -->
+                <Button Grid.Row="4" Margin="20" Text="Follow" />
+
+            </Grid>
+
+            <!--Actions-->
+            <StackLayout>
+                <Button HeightRequest="60"
+                        BackgroundColor="Azure"
+                        Command="{Binding EnterLocationViewCommand}"
+                        Text="View Location"/>
             </StackLayout>
 
-            <!--  Social Stats Section  -->
-            <Grid Grid.Row="2" Margin="0,30" ColumnSpacing="0" RowSpacing="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+        </StackLayout>
 
-                <StackLayout>
-                    <Label Text="{Binding CurrentDoctor.Gender}"
-                           HorizontalOptions="Center"/>
-                    <Label  Text="Gender"
-                            HorizontalOptions="Center"/>
-                </StackLayout>
-
-                <StackLayout Grid.Column="1">
-                    <Label Text="{Binding CurrentDoctor.Email}"
-                           HorizontalOptions="Center"/>
-                    <Label  Text="Email"
-                            HorizontalOptions="Center"/>
-                </StackLayout>
-
-                <StackLayout Grid.Column="2">
-                    <Label Text="{Binding CurrentDoctor.Phone}"
-                           HorizontalOptions="Center"/>
-                    <Label Text="Phone"
-                           HorizontalOptions="Center"/>
-                </StackLayout>
-            </Grid>
-            <!--  follow button  -->
-            <Button Grid.Row="4" Margin="20" Text="Follow" />
-
-        </Grid>
     </ScrollView>
 </ContentPage>
